@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet"href="C:\Users\boith\OneDrive\Documentos\Projects\GymManagement\Css\Tem2.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <script defer src="C:\Users\boith\OneDrive\Documentos\Projects\GymManagement\Script.js"></script>
+</head>
+<body>
+    <div class="Title">
+        <h1>Membership Registration</h1>
+    </div>
+    <div class="registration-container" id="registration-form">
+        <h2>Registration</h2>
+        <form class="registration-form">
+            <div class="form-group">
+                <label>Membership ID:</label>
+                <input type="text" id="membership-id" name="membership_id" placeholder="Enter Membership ID" required>
+            </div>
+            <div class="form-group">
+                <label>Name(s):</label>
+                <input type="text" id="first-name" name="first_name" placeholder="Name(s)" required>
+            </div>
+            <div class="form-group">
+                <label>Surname:</label>
+                <input type="text" id="surname" name="surname" placeholder="Surname" required>
+            </div>
+            <div class="form-group">
+                <label>Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Example@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label>Phone Number:</label>
+                <input type="text" id="phone" name="phone" placeholder="0768968071" required>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="prefernotsay">Prefer Not Say</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label>Joining Date:</label>
+                <input type="date" id="joining-date" name="joining_date" required>
+            </div>
+            <button type="submit">Register</button>
+        </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Chrome">
+<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+<title>Welcome</title>
+<link rel="stylesheet"href="C:\Users\boith\OneDrive\Documentos\Projects\GymManagement\Css\Tem1.css" type="text/css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+<script defer src="C:\Users\boith\OneDrive\Documentos\Projects\GymManagement\Script.js"></script>
+</head>
+<body>
+    <div class="GymClub">
+        <h1>Gym Club</h1>
+    </div>
+    <div class="LogInPage">
+        <div class="formBox">
+            <form id="loginForm">
+                <div class="role-selection">
+                    <div class="role-option">
+                        <label for="userRole">
+                            <input type="radio" id="userRole" name="role" value="user" required>
+                            <i class="fas fa-user"></i>
+                            <span>User</span>
+                        </label>
+                    </div>
+                    <div class="role-option">
+                        <label for="adminRole">
+                            <input type="radio" id="adminRole" name="role" value="admin">
+                            <i class="fas fa-user-shield"></i>
+                            <span>Admin</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label>ID:</label>
+                    <input type="text" id="loginUsername" placeholder="Username" required>
+                </div>
+                <div class="input-box">
+                    <label>Password:</label>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                </div>
+                <button type="button" class="btn" id="loginButton">
+                    <i class="fa-solid fa-right-to-bracket"></i> Log In
+                </button>                    
+                <div class="forgot-password">
+                    <a href="ForgotPassword.html">Forgot Password</a>
+                </div>
+                <div class="account-creation">
+                    <span>Not a member? <a href="Registration.html" id="showRegisterLink" class="RegisterLink">Register</a> </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        // JavaScript to handle redirection based on role selection
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginButton = document.getElementById('loginButton');
+            const userRole = document.getElementById('userRole');
+            const adminRole = document.getElementById('adminRole');
+            let selectedRole = '';
+
+            userRole.addEventListener('click', function () {
+                selectedRole = 'user';
+                userRole.style.backgroundColor = '#3498db';
+                userRole.style.color = '#fff';
+                adminRole.style.backgroundColor = '';
+                adminRole.style.color = '';
+            });
+
+            adminRole.addEventListener('click', function () {
+                selectedRole = 'admin';
+                adminRole.style.backgroundColor = '#3498db';
+                adminRole.style.color = '#fff';
+                userRole.style.backgroundColor = '';
+                userRole.style.color = '';
+            });
+
+            loginButton.addEventListener('click', function () {
+                if (selectedRole === 'user') {
+                    window.location.href = 'UserDashboard.html';
+                } else if (selectedRole === 'admin') {
+                    window.location.href = 'AdminDashboard.html';
+                } else {
+                    alert('Please select a role to proceed.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments</title>
+    <link rel="stylesheet"href="C:\Users\boith\OneDrive\Documentos\Projects\GymManagement\Css\Tem2.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <script defer src="C:\Users\boith\OneDrive\Documentos\Projects\GymManagement\Script.js"></script>
+</head>
+<body>
+    <div class="Title">
+        <h1>Payments</h1>
+    </div>
+    <div class="payment-container">
+        <div class="title">
+            <h2>Select Payment Method</h2>
+        </div>
+        <div class="plan-selection">
+            <label for="plan">Choose a Plan:</label>
+            <select id="plan">
+                <option value="" selected disabled>Select a Plan</option>
+                <option value="weekly">Weekly - R85</option>
+                <option value="monthly">Monthly - R800</option>
+                <option value="yearly">Yearly - R4500</option>
+            </select>
+        </div>
+        <div class="payment-methods">
+            <div class="method-card" id="card-payment">
+                <i class="fas fa-credit-card"></i>
+                <p>Credit/Debit Card</p>
+            </div>
+            <div class="method-card" id="bank-transfer">
+                <i class="fas fa-university"></i>
+                <p>Bank Transfer</p>
+            </div>
+        </div>
+        <div class="payment-form" id="card-form">
+            <h2>Credit/Debit Card Details</h2>
+            <form action="process_payment.php" method="POST">
+                <label for="card-name">Cardholder's Name:</label>
+                <input type="text" id="card-name" name="card_name" placeholder="Enter Cardholder's Name" required>
+
+                <label for="card-number">Card Number:</label>
+                <input type="number" id="card-number" name="card_number" placeholder="Enter Card Number" required>
+
+                <label for="expiry">Expiry Date:</label>
+                <input type="text" id="expiry" name="expiry_date" placeholder="MM/YY" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="number" id="cvv" name="cvv" placeholder="123" required>
+
+                <input type="hidden" id="card-plan" name="plan" value="">
+                <button type="submit">Pay Now</button>
+            </form>
+        </div>
+        <div class="payment-form" id="bank-form">
+            <h2>Bank Transfer Details</h2>
+            <form action="process_payment.php" method="POST">
+                <label for="bank-name">Bank Name:</label>
+                <input type="text" id="bank-name" name="bank_name" placeholder="Enter Bank Name" required>
+
+                <label for="account-name">Account Holder's Name:</label>
+                <input type="text" id="account-name" name="account_name" placeholder="Enter Account Holder's Name" required>
+
+                <label for="account-number">Account Number:</label>
+                <input type="number" id="account-number" name="account_number" placeholder="Enter Account Number" required>
+
+                <label for="reference">Payment Reference:</label>
+                <input type="text" id="reference" name="reference" placeholder="Enter Payment Reference" required>
+
+                <input type="hidden" id="bank-plan" name="plan" value="">
+                <button type="submit">Pay Now</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Script to toggle between payment forms and set plan prices
+        const planSelect = document.getElementById('plan');
+        const paymentMethods = document.querySelector('.payment-methods');
+        const cardPayment = document.getElementById('card-payment');
+        const bankTransfer = document.getElementById('bank-transfer');
+        const mobilePayment = document.getElementById('mobile-payment');
+        const cardForm = document.getElementById('card-form');
+        const bankForm = document.getElementById('bank-form');
+        const mobileForm = document.getElementById('mobile-form');
+        
+        const cardPlanInput = document.getElementById('card-plan');
+        const bankPlanInput = document.getElementById('bank-plan');
+        const mobilePlanInput = document.getElementById('mobile-plan');
+
+        planSelect.addEventListener('change', () => {
+            paymentMethods.style.display = 'flex';
+            const selectedPlan = planSelect.options[planSelect.selectedIndex].text;
+            
+            // Set hidden input values for selected plan in all forms
+            cardPlanInput.value = selectedPlan;
+            bankPlanInput.value = selectedPlan;
+            mobilePlanInput.value = selectedPlan;
+        });
+
+        cardPayment.addEventListener('click', () => {
+            cardForm.classList.add('active');
+            bankForm.classList.remove('active');
+            mobileForm.classList.remove('active');
+        });
+
+        bankTransfer.addEventListener('click', () => {
+            bankForm.classList.add('active');
+            cardForm.classList.remove('active');
+            mobileForm.classList.remove('active');
+        });
+
+        mobilePayment.addEventListener('click', () => {
+            mobileForm.classList.add('active');
+            cardForm.classList.remove('active');
+            bankForm.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

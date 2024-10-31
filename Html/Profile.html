@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet"href="C:\Users\boith\OneDrive\Documentos\Projects\GymManagement\Css\Tem2.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <script defer src="C:\Users\boith\OneDrive\Documentos\Projects\GymManagement\Script.js"></script>
+</head>
+<body>   
+     <div class="Title">
+       <h1>Profile</h1>
+     </div>
+        <div class="profile-content">
+            <div class="profile-card">
+                <h2>Set Profile</h2>
+                <div class="profile-picture" id="profile-picture">
+                   <img src="default-profile.png" alt="Profile Picture">
+                </div>
+                   <input type="file" id="upload" style="display: none;" accept="image/*">
+                   <label for="upload" class="upload-button"><i class="fa-solid fa-pencil"></i>Upload Image</label>
+            </div>
+                <!-- Profile Information -->
+                <div class="profile-info">
+                    <label>Membership ID:</label> <span>VM011027</span>
+                </div>
+                <div class="profile-info">
+                    <label>Name(s):</label> <span>Vumani Boithlomolo</span>
+                </div>
+                <div class="profile-info">
+                    <label>Surname:</label> <span>Motloung</span>
+                </div>
+                <div class="profile-info">
+                    <label>Email Address:</label> <span>boithlomolo@example.com</span>
+                </div>
+                <div class="profile-info">
+                    <label>Phone Number:</label> <span>067 930 9258</span>
+                </div>
+                <div class="profile-info">
+                    <label>Gender:</label> <span>Male</span>
+                </div>
+                <div class="profile-info">
+                    <label>Health Status:</label> <span>Healthy</span>
+                </div>
+                <div class="profile-info">
+                    <label>Plan:</label> <span>Monthly Plan</span>
+                </div>
+                    <button class="edit-button">Edit Profile</button>
+                </div>
+        </div>
+        <script>
+            const uploadInput = document.getElementById('upload');
+            const profilePicture = document.getElementById('profile-picture').querySelector('img');
+    
+            uploadInput.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        profilePicture.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        </script>
+</body>
+</html>

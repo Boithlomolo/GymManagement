@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Routine</title>
+    <link rel="stylesheet"href="C:\Users\boith\OneDrive\Documentos\Projects\GymManagement\Css\Tem2.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <script defer src="C:\Users\boith\OneDrive\Documentos\Projects\GymManagement\Script.js"></script>
+</head>
+<body>
+    <div class="Title">
+        <h1>Exercise Routine</h1>
+    </div>
+    <div class="exercise-container">
+        <h2>Set Exercise Routine</h2>
+        <form action="submit_exercise_routine.php" method="post">
+            <div class="form-group">
+                <label for="membership-id">Membership ID</label>
+                <input type="text" id="membership-id" name="membership_id" placeholder="Enter Membership ID" required>
+            </div>
+            <div class="form-group">
+                <label for="exercise-name">Exercise Name</label>
+                <input type="text" id="exercise-name" name="exercise_name" placeholder="Enter Exercise Name (e.g., Squats, Push-ups)" required>
+            </div>
+            <div class="form-group">
+                <label for="exercise-type">Exercise Type</label>
+                <select id="exercise-type" name="exercise_type" required>
+                    <option value="">Select Exercise Type</option>
+                    <option value="cardio">Cardio</option>
+                    <option value="strength">Strength</option>
+                    <option value="flexibility">Flexibility</option>
+                    <option value="balance">Balance</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration (minutes)</label>
+                <input type="number" id="duration" name="duration" placeholder="Enter Duration (e.g., 30)" required>
+            </div>
+            <div class="form-group">
+                <label for="frequency">Frequency (times per week)</label>
+                <input type="number" id="frequency" name="frequency" placeholder="Enter Frequency (e.g., 3)" required>
+            </div>
+            <div class="form-group">
+                <label for="additional-notes">Additional Notes</label>
+                <textarea id="additional-notes" name="additional_notes" placeholder="Enter any additional notes about the exercise routine"></textarea>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
